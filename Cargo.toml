@@ -1,0 +1,55 @@
+[package]
+name = "idlesys"
+version = "0.1.0"
+edition = "2021"
+default-run = "idlac"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+# [features]
+# default = ["idla", "imark", "common"]
+# idla_features = ["idla", "common"]
+# imark_features = ["imark", "common"]
+
+[lib]
+doctest = false
+
+
+[[bin]]
+name = "idlac"
+path = "src/bin/idlac.rs"
+
+[[bin]]
+name = "idlals"
+path = "src/bin/idlals.rs"
+
+[[bin]]
+name = "imarkc"
+path = "src/bin/imark.rs"
+
+[[bin]]
+name = "imarkls"
+path = "src/bin/imarkls.rs"
+
+[dependencies]
+serde =   { version ="1.0.137", featuures=["derive"]}
+
+[dependencies.imark]
+package = "imark"
+path = "./lib/imark"
+default-features = false
+optional = true
+
+[dependencies.idla]
+package = "idla"
+path = "./lib/idla"
+default-features = false
+optional = true
+
+[dependencies.common]
+package = "is-common"
+path = "./lib/common"
+default-features = false
+optional = true
+
+
